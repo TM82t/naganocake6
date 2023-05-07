@@ -1,0 +1,24 @@
+<% if admin_signed_in? %>
+<li>
+  <%= link_to root_path, class: 'nav-link text-light' do %>
+  <i class="fas fa-home" style="color:#fff;"></i> 商品一覧
+  <% end %>
+</li>
+<li>
+  <%= link_to root_path, class: 'nav-link text-light' do %>
+  <i class="fas fa-users" style="color:#fff;"></i> 会員一覧
+  <% end %>
+</li>
+<li>
+  <%= link_to  root_path, class: 'nav-link text-light' do %>
+  <i class="fas fa-book-open" style="color:#fff;"></i> 注文履歴一覧
+  <% end %>
+</li>
+<li>
+  <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-light' do %>
+  <i style="color:#fff;"></i> ログアウト
+  <% end %>
+</li>
+<% else %>
+ <%= render '/layouts/customer_header' %>
+<% end %>

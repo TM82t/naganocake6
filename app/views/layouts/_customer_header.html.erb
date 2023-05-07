@@ -1,0 +1,43 @@
+<% if customer_signed_in? %>
+<li>
+  <%= link_to root_path, class: 'nav-link text-light' do %>
+  <i class="fas fa-home" style="color:#fff;"></i> マイページ
+  <% end %>
+</li>
+<li>
+  <%= link_to root_path, class: 'nav-link text-light' do %>
+  <i class="fas fa-users" style="color:#fff;"></i> 商品一覧
+  <% end %>
+</li>
+<li>
+  <%= link_to  root_path, class: 'nav-link text-light' do %>
+  <i class="fas fa-book-open" style="color:#fff;"></i> カート
+  <% end %>
+</li>
+<li>
+  <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-light' do %>
+  <i style="color:#fff;"></i> ログアウト
+  <% end %>
+</li>
+<% else %>
+<li>
+  <%= link_to root_path, class: 'nav-link text-light' do %>
+  <i style="color:#fff;"></i> About
+  <% end %>
+</li>
+<li>
+  <%= link_to root_path, class: 'nav-link text-light' do %>
+  <i style="color:#fff;"></i> 商品一覧
+  <% end %>
+</li>
+<li>
+  <%= link_to new_customer_registration_path, class: 'nav-link text-light' do %>
+  <i class="fas fa-user-plus"  style="color:#fff;"></i> Sign up
+  <% end %>
+</li>
+<li>
+  <%= link_to new_customer_session_path, class: 'nav-link text-light' do %>
+  <i class="fas fa-sign-in-alt" style="color:#fff;"></i> Log in
+  <% end %>
+</li>
+<% end %>
