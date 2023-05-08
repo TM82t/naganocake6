@@ -15,7 +15,7 @@
   <% end %>
 </li>
 <li>
-  <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-light' do %>
+  <%= link_to destroy_admin_session_path, data: { turbo_method: :delete } do %>
   <i style="color:#fff;"></i> ログアウト
   <% end %>
 </li>
