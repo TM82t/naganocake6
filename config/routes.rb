@@ -8,9 +8,16 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
 
-  root to: "homes#top"
-  get "/about" => "homes#about", as: 'about'
-  resources :items, only: [:index, :show]
+  scope module: :public do
+    root to: "homes#top"
+    get 'about' => "homes#about"
+    get 'items' => 'items#index'
+    get '/items/:id' => 'items#show'
+    get '/customers/my_page' => 'customers#show'
+    get '/customers/information/edit' => 'customers#edit'
+    
+  end
+
   namespace :admin do
     root to: "homes#top"
     get 'items' => 'admin/items#index'

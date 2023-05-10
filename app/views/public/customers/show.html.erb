@@ -1,0 +1,31 @@
+<h3>マイページ</h3>
+
+<h4>登録情報</h4>
+<% form_with model: @customer do |f| %>
+<div class="actions">
+  <%= f.submit "更新する", class: "btn btn-success" %>
+</div>
+<% end %>
+
+<table border="1">
+  <body>
+    <tr>
+      <th bgcoler="#C0C0C0">氏名</th>
+    </tr>
+    <tr>
+      <th bgcoler="#C0C0C0">カナ</th>
+    </tr>
+    <tr>
+      <th bgcoler="#C0C0C0">郵便番号</th>
+    </tr>
+    <tr>
+      <th bgcoler="#C0C0C0">住所</th>
+    </tr>
+    <tr>
+      <th bgcoler="#C0C0C0">電話番号</th>
+    </tr>
+    <tr>
+      <th bgcoler="#C0C0C0">メールアドレス</th>
+    </tr>
+  </body>
+</table>
