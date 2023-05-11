@@ -1,31 +1,36 @@
 <h3>マイページ</h3>
+<div class="row">
+  <div class="col-10">
 
-<h4>登録情報</h4>
-<% form_with model: @customer do |f| %>
-<div class="actions">
-  <%= f.submit "更新する", class: "btn btn-success" %>
+  <h4>登録情報</h4><%= link_to "編集する", customers_information_edit_path, class: "btn btn-success mb-4" %>
+
+      <table border="1">
+        <body>
+          <tr>
+            <th bgcoler="#C0C0C0">氏名</th>
+            <td><%= @customer.first_name %> <%= @customer.last_name %></td>
+          </tr>
+          <tr>
+            <th bgcoler="#C0C0C0">カナ</th>
+            <td><%= @customer.first_name_kana%> <%= @customer.last_name_kana %></td>
+          </tr>
+          <tr>
+            <th bgcoler="#C0C0C0">郵便番号</th>
+            <td><%= @customer.postal_code %></td>
+          </tr>
+          <tr>
+            <th bgcoler="#C0C0C0">住所</th>
+            <td><%= @customer.address %></td>
+          </tr>
+          <tr>
+            <th bgcoler="#C0C0C0">電話番号</th>
+            <td><%= @customer.telephone_number %></td>
+          </tr>
+          <tr>
+            <th bgcoler="#C0C0C0">メールアドレス</th>
+            <td><%= @customer.email %></td>
+          </tr>
+        </body>
+      </table>
+  </div>
 </div>
-<% end %>
-
-<table border="1">
-  <body>
-    <tr>
-      <th bgcoler="#C0C0C0">氏名</th>
-    </tr>
-    <tr>
-      <th bgcoler="#C0C0C0">カナ</th>
-    </tr>
-    <tr>
-      <th bgcoler="#C0C0C0">郵便番号</th>
-    </tr>
-    <tr>
-      <th bgcoler="#C0C0C0">住所</th>
-    </tr>
-    <tr>
-      <th bgcoler="#C0C0C0">電話番号</th>
-    </tr>
-    <tr>
-      <th bgcoler="#C0C0C0">メールアドレス</th>
-    </tr>
-  </body>
-</table>
