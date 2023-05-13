@@ -1,0 +1,11 @@
+<div>
+  <h5>商品詳細</h5>
+  <% if item.image.attached? %>
+    <%= image_tag item.image, size: "200x200" %>
+  <% else %>
+    <%= image_tag 'no_image', size: "200x200" %>
+  <p>商品名名 : <%= @item.name %></p>
+  <p>商品説明 : <%= @item.introduction %></p>
+  <p>税込価格（税抜価格） : <%= @item.price %></p>
+  <%= link_to "編集する", edit_admins_item_path(@item), class: "btn btn-primary" %>
+</div>
