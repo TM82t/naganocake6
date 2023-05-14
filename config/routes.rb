@@ -11,8 +11,7 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: "homes#top"
     get 'about' => "homes#about"
-    get 'items' => 'items#index'
-    get '/items/:id' => 'items#show'
+    resources :items, only: [:index, :show]
     get '/customers/my_page' => 'customers#show'
     get '/customers/information/edit' => 'customers#edit'
     patch '/customers' => 'customers#update'
@@ -33,7 +32,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: "homes#top"
-    resources :items, only: [:index, :new, :create, :show, :edit]
+    resources :items, only: [:index, :new, :show, :create, :edit, :get_image]
     patch '/items/:id' => 'items#update'
     resources :customers, only: [:index, :show, :edit]
     patch '/customers/:id' => 'customers#update'

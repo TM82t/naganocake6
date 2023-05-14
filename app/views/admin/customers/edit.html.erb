@@ -1,0 +1,48 @@
+<div class="container">
+ <div class="row no-gutters">
+  <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+    <%= form_with model: @customer, url:admin_customer_path(@customer.id) do |f| %>
+   <h5 class="text-dark p-4 mb-0">
+     <%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集
+   </h5>
+   <div class="form-body p-4">
+      <div class="input-group mb-3 mt-4">
+        <tr>
+          <th>ID</th>
+          <td><%= @customer.id %></td>
+        </tr>
+　　　　<tr>
+          <th>氏名</th>
+          <td><%= @customer.last_name %> <%= @customer.first_name %></td>
+        </tr>
+        <tr>
+          <th>フリガナ</th>
+          <td><%= @customer.last_name_kana %> <%= @customer.first_name_kana %></td>
+        </tr>
+        <tr>
+          <th>郵便番号</th>
+          <td><%= @customer.postal_code %></td>
+        </tr>
+        <tr>
+          <th>住所</th>
+          <td><%= @customer.address %></td>
+        </tr>
+        <tr>
+          <th>電話番号</th>
+          <td><%= @customer.telephone_number %></td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <td><%= @customer.email %></td>
+        </tr>
+        <tr>
+        <div class="">
+          <%= f.label :is_deleted, "会員ステータス" %>
+          <%= f.select :is_deleted, [["有効","false"], ["退会","true"]], class:　"form-control" %>
+        </div>
+     <%= f.submit '変更を保存', class:"btn btn-sm btn-success mt-9" %>
+    <% end %>
+   </div>
+  </div>
+ </div>
+</div>

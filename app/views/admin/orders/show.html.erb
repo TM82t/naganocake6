@@ -1,0 +1,30 @@
+<p>注文履歴詳細</p>
+<table class="table table-hover table-inverse">
+  <thead>
+    <tr>
+      <th>商品名</th>
+      <th>単価（税込）</th>
+      <th>注文数</th>
+      <th>小計</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @items.each do |f| %>
+   <tr>
+    <td>
+      <%= f.name  %>
+    </td>
+    <td>
+       <%= f.price %>
+    </td>
+    <td>
+      <%= f.amount %>
+    </td>
+    <td>
+      <%= f.price*f.amout 
+    </td>
+   </tr>
+  <% end %>
+  </tbody>
+</table>
