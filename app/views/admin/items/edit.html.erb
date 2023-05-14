@@ -1,0 +1,25 @@
+<div class="container">
+ <div class="row no-gutters">
+  <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+   <h5 class="text-dark bg-light p-4 mb-0">商品編集</h5>
+   <div class="form-body p-4">
+    <%= form_with model: @item, url:admin_path(@item.id), local:true do |f| %>
+     <%= f.label :image, "商品画像" %>
+     <%= f.file_field :image, accept: "image/*", class: "w-100" %>
+      <div class="input-group mb-3 mt-4">
+       <div class="input-group-prepend">
+        <span class="input-grout-text" aria-hidden="true"><i class="fas fa-building"></i></span>
+       </div>
+       <%= f.label :name, "商品名" %><%= f.text_field :name, class:"form-control" %>
+      </div>
+     <%= f.label :introduction, "商品説明" %>
+     <%= f.text_area :introduction, class:"form-control" %>
+     <%= f.label :price, "税抜価格" %>
+     <%= f.text_field :price, class:"form-cntrol" %>円
+     <hr>
+     <%= f.submit '変更を保存', class:"btn btn-sm btn-success mt-9" %>
+    <% end %>
+   </div>
+  </div>
+ </div>
+</div>
