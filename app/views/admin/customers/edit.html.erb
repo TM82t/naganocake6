@@ -1,7 +1,7 @@
 <div class="container">
  <div class="row no-gutters">
   <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
-    <%= form_with model: @customer, url:admin_customer_path(@customer.id) do |f| %>
+    <%= form_with model: @customer, url:admin_customer_path(@customer.id) do |customer| %>
    <h5 class="text-dark p-4 mb-0">
      <%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集
    </h5>
@@ -11,7 +11,7 @@
           <th>ID</th>
           <td><%= @customer.id %></td>
         </tr>
-　　　　<tr>
+        <tr>
           <th>氏名</th>
           <td><%= @customer.last_name %> <%= @customer.first_name %></td>
         </tr>
@@ -36,13 +36,17 @@
           <td><%= @customer.email %></td>
         </tr>
         <tr>
-        <div class="">
-          <%= f.label :is_deleted, "会員ステータス" %>
-          <%= f.select :is_deleted, [["有効","false"], ["退会","true"]], class:　"form-control" %>
+        <div>
+          <%= customer.label :is_deleted, "会員ステータス" %>
+          <%= customer.radio_button :is_deleted, :false %>有効
+          <%= customer.radio_button :is_deleted, :true %>退会
         </div>
-     <%= f.submit '変更を保存', class:"btn btn-sm btn-success mt-9" %>
+    </div>
+    <div class="actions">
+    <%= customer.submit '変更を保存', class: "btn btn-sm btn-success mt-9" %>
+    </div>
     <% end %>
-   </div>
+
   </div>
  </div>
 </div>
