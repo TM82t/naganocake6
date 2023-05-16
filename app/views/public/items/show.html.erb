@@ -8,9 +8,8 @@
       <% end %>
     </div>
     <div>
-      <%= form_with model: @items, url:items_path do |f| %>
-      <p><%= @item.name %></p>
-      <p><%= @item.introduction %></p>
+      <p><%= @item.name %></p><br>
+      <p><%= @item.introduction %></p><br>
       <p>¥<%= @item.price*1.1 %>（税込）</p>
     </div>
   </div>
@@ -22,7 +21,10 @@
   	</div>
 
   		<div class="col-xs-5">
-  		  <p><%= f.submit "カートに入れる", class: "btn btn-success" %></p>
+  		  <%= form_with model: @cart_item, url: cart_items_path(@cart_item) do |item| %>
+  		  <%= item.select :amount, {'1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '10': 10}, placeholder: "個数選択" %>
+  		  <%= item.hidden_field :item_id, :value => "@item_id" %>
+  		  <%= item.submit "カートに入れる", class: "btn btn-success" %>
   		<% end %>
   		</div>
   </div>
