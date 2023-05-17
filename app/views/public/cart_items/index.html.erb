@@ -1,16 +1,23 @@
 <h4>ショッピングカート</h4>
 <table>
   <thead>
-      <th>単価(税込)</th>
-      <th>小計</th>
+    <th>商品名</th>
+    <th>単価(税込)</th>
+    <th>数量</th>
+    <th>小計</th>
+    <th></th>
   </thead>
   <tbody>
-  <% インスタンス変数.each do |cart_item| %>
+  <% @cart_items.each do |cart_item| %>
       <tr>
-          <td><%= cart_item.item.with_tax_price %></td>
-          <td><%= cart_item.subtotal %></td>
-          <% @合計金額 +=  cart_item.subtotal %>
+        <td><%= image_tag cart_item.item.image, size: "100x120" %><%= cart_item.item.name %></td>
+        <td><%= cart_item.item.with_tax_price %></td>
+        <td><%= cart_item.amount %></td>
+        <td><%= cart_item.subtotal %></td>
+        <td></td>
+        <% @total_payment +=  cart_item.subtotal %>
       </tr>
   <% end %>
   </tbody>
 </table>
+<%= @total_payment %>
