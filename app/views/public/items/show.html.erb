@@ -1,26 +1,27 @@
 <div class="contaner">
   <div class="row">
-    <div>
-      <% if @item.image.attached? %>
-        <%= image_tag @item.image, size: "200x200" %>
-      <% else %>
-        <%= image_tag 'no_image', size: "200x200" %>
-      <% end %>
-    </div>
-    <div>
-      <p><%= @item.name %></p><br>
-      <p><%= @item.introduction %></p><br>
-      <p>¥<%= @item.price*1.1 %>（税込）</p>
-    </div>
+    <div class="col-xs-12"></div>
+      <div>
+        <% if @item.image.attached? %>
+          <%= image_tag @item.image, size: "200x200" %>
+        <% else %>
+          <%= image_tag 'no_image', size: "200x200" %>
+        <% end %>
+      </div>
+      <div>
+        <p><%= @item.name %></p><br>
+        <p><%= @item.introduction %></p><br>
+        <p>¥<%= @item.price*1.1 %>（税込）</p>
+      </div>
   </div>
 
   <div class="row">
-  	<div class="col-xs-2">
+  	<div class="col-xs-12">
   	</div>
-  	<div class="col-xs-5">
+  	<div class="col-xs-12">
   	</div>
 
-  		<div class="col-xs-5">
+  		<div class="col-xs-12">
   		  <%= form_with model: @cart_item, url: cart_items_path(@cart_item) do |item| %>
   		  <%= item.select :amount, {'1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '10': 10}, placeholder: "個数選択" %>
   		  <%= item.hidden_field :item_id, :value => @item.id %>
