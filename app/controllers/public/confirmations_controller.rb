@@ -15,7 +15,7 @@ class Public::ConfirmationsController < Devise::ConfirmationsController
   # def show
   #   super
   # end
-  
+
   # protected
 
   # The path used after resending confirmation instructions.

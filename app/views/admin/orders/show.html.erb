@@ -1,30 +1,59 @@
-<p>注文履歴詳細</p>
-<table class="table table-hover table-inverse">
-  <thead>
-    <tr>
-      <th>商品名</th>
-      <th>単価（税込）</th>
-      <th>注文数</th>
-      <th>小計</th>
-    </tr>
-  </thead>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <p>注文履歴詳細</p>
+      <table>
+         <tr>
+          <th class="order-show">購入者</th>
+          <td><%= @order.member.last_name %> <%= @order.member.first_name %></td>
+        </tr>
+        <tr>
+          <th class="order-show">配送先</th>
+          <td>〒<%= @order.postal_code %> <%= @order.address %><br><%= @order.name %></td>
+        </tr>
+        <tr>
+          <th class="order-show">支払い方法</th>
+          <td><%= @order.payment_method %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
 
-  <tbody>
-  <% @items.each do |f| %>
-   <tr>
-    <td>
-      <%= f.name  %>
-    </td>
-    <td>
-       <%= f.price %>
-    </td>
-    <td>
-      <%= f.amount %>
-    </td>
-    <td>
-      <%= f.price*f.amout 
-    </td>
-   </tr>
-  <% end %>
-  </tbody>
-</table>
+  <div class="row">
+    <div class="col-xs-9">
+      <table class="table table-hover table-inverse">
+          <tr>
+            <th>商品名</th>
+            <th>単価（税込）</th>
+            <th>注文数</th>
+            <th>小計</th>
+            <th></th>
+          </tr>
+
+        <% @order_items.each do |order_item| %>
+         <tr>
+          <td>
+            <%= order_item.name  %>
+          </td>
+          <td>
+             <%= order_item.price %>
+          </td>
+          <td>
+            <%= order_item.amount %>
+          </td>
+          <td>
+            <%= order_item.price*f.amout %>
+          </td>
+         </tr>
+        <% end %>
+      </table>
+    </div>
+
+    <div class="total">
+     <h4>商品合計     <%= @order.total_fee %>円</h4>
+     <h4>送料　　　    <%= @order.postage %>円</h4>
+     <h4>請求金額合計　<%= (@order.total_fee+@order.postage) %>円</h4>
+    </div>
+  </div>
+
+</div>

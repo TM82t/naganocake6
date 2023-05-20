@@ -1,4 +1,5 @@
 <% if customer_signed_in? %>
+<li class="youkoso">ようこそ、<%= current_customer.last_name %>さん！</li>
 <li class="nav-item">
   <%= link_to customers_my_page_path, class: 'nav-link text-light' do %>
   <i class="fas fa-home" style="color:#fff;"></i> マイページ

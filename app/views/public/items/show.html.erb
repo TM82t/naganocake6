@@ -11,7 +11,7 @@
       <div>
         <p><%= @item.name %></p><br>
         <p><%= @item.introduction %></p><br>
-        <p>¥<%= @item.price*1.1 %>（税込）</p>
+        <p>¥<%= @item.with_tax_price %>（税込）</p>
       </div>
   </div>
 

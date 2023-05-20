@@ -17,7 +17,7 @@
               <td><%= image_tag cart_item.item.image, size: "100x120" %><%= cart_item.item.name %></td>
               <td><%= cart_item.item.with_tax_price %></td>
               <td>
-                <% form_with model: cart_item, url: cart_item_path(cart_item) do |c| %>
+                <%= form_with model: cart_item, url: cart_item_path(cart_item) do |c| %>
                  <p>
                   <%= c.select :amount, {'1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '10': 10} %>
                   <%= c.submit "変更", class: "btn btn-success" %>
@@ -47,12 +47,12 @@
   </div>
 
   <div class="col-xs-4">
-    <table class="table table-bordered">
+    <div>
       <tr>
         <td class="info col-xs-2"><strong>合計金額</strong></td>
         <td class="col-xs-2">¥<%= @total_payment %></td>
       </tr>
-    </table>
+    </div>
   </div>
 
   <div class="row">

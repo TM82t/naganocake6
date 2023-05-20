@@ -1,22 +1,35 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-7">
-	    <h2><i class="fas fa-pen"></i>注文情報入力</h2>
-      <p><%= notice %></p>
+	    <h2>注文情報入力</h2>
 
 
-      <%= form_with(model: @order, local: true, url: public_orders_confirm_path, method: :post) do |f| %>
-      <div class="field row" style="margin-left:20px; ">
-        <h4><strong>支払い方法</strong></h4>
-        <label style="margin-left: 60px;"><%= f.radio_button :payment_method, 2, checked: "checked"%> クレジットカード </label><br>
-        <label style="margin-left: 60px;"><%= f.radio_button :payment_method, 1 %> 銀行振込</label>
+      <%= form_with(model: @order, local: true, url: orders_confirm_path, method: :post) do |f| %>
+      <div style="margin-left:20px; ">
+        <h4>
+          <strong>支払い方法</strong>
+        </h4>
+        <label style="margin-left: 60px;">
+          <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
+          <%= f.label :payment_method_credit_card, Order.payment_methods_i18n[:credit_card] %>
+        </label><br>
+        <label style="margin-left: 60px;">
+          <%= f.radio_button :payment_method, Order.payment_methods.key(2) %>
+          <%= f.label :payment_method_bank, Order.payment_methods_i18n[:bank]%>
+        </label><br>
 
-        <h4><strong>お届け先</strong></h4>
-        
-        <label style="margin-left: 60px;"><%= f.radio_button :address_number,1,checked: "checked" %> ご自身の住所 </label><br>
-        <div style="margin-left:70px;"><%= current_member.postal_code %> <%= current_member.address %><br><%= current_member.last_name %><%= current_member.first_name %></div><br><br>
+        <h4>
+          <strong>お届け先</strong>
+        </h4>
+
+        <div style="margin-left:70px;">
+          <%= current_customer.postal_code %> <%= current_customer.address %><br>
+          <%= current_customer.last_name %><%= current_customer.first_name %>
+        </div><br>
+
+        <%= f.submit "確認画面に進む", class: "btn btn-primary text-cenrer" %>
+
       <% end %>
-        </div>
       </div>
     </div>
   </div>
