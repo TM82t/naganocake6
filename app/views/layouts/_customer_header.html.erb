@@ -1,43 +1,43 @@
 <% if customer_signed_in? %>
 <li class="youkoso">ようこそ、<%= current_customer.last_name %>さん！</li>
 <li class="nav-item">
-  <%= link_to customers_my_page_path, class: 'nav-link text-light' do %>
+  <%= link_to customers_my_page_path, class: 'nav-link text-dark' do %>
   <i class="fas fa-home" style="color:#fff;"></i> マイページ
   <% end %>
 </li>
 <li class="nav-item">
-  <%= link_to items_path, class: 'nav-link text-light' do %>
+  <%= link_to items_path, class: 'nav-link text-dark' do %>
   <i class="fas fa-users" style="color:#fff;"></i> 商品一覧
   <% end %>
 </li>
 <li class="nav-item">
-  <%= link_to  cart_items_path, class: 'nav-link text-light' do %>
+  <%= link_to  cart_items_path, class: 'nav-link text-dark' do %>
   <i class="fas fa-book-open" style="color:#fff;"></i> カート
   <% end %>
 </li>
 <li class="nav-item">
-  <%= link_to destroy_customer_session_path, class: 'nav-link text-light' do %>
+  <%= link_to destroy_customer_session_path, class: 'nav-link text-dark' do %>
   <i style="color:#fff;"></i> ログアウト
   <% end %>
 </li>
 <% else %>
 <li class="nav-item">
-  <%= link_to about_path, class: 'nav-link text-light' do %>
+  <%= link_to about_path, class: 'nav-link text-dark' do %>
   <i style="color:#fff;"></i> About
   <% end %>
 </li>
 <li class="nav-item">
-  <%= link_to items_path, class: 'nav-link text-light' do %>
+  <%= link_to items_path, class: 'nav-link text-dark' do %>
   <i style="color:#fff;"></i> 商品一覧
   <% end %>
 </li>
 <li class="nav-item">
-  <%= link_to new_customer_registration_path, class: 'nav-link text-light' do %>
+  <%= link_to new_customer_registration_path, class: 'nav-link text-dark' do %>
   <i class="fas fa-user-plus"  style="color:#fff;"></i> 新規登録
   <% end %>
 </li>
 <li class="nav-item">
-  <%= link_to new_customer_session_path, class: 'nav-link text-light' do %>
+  <%= link_to new_customer_session_path, class: 'nav-link text-dark' do %>
   <i class="fas fa-sign-in-alt" style="color:#fff;"></i> ログイン
   <% end %>
 </li>

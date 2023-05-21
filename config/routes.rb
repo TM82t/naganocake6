@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     get '/orders/complete' => 'orders#complete'
     post '/orders' => 'orders#create'
     get '/orders' => 'orders#index'
-    get '/orders/:id' => 'orders#show'
+    get '/orders/:id' => 'orders#show', as: :order
   end
 
   namespace :admin do
@@ -36,7 +36,7 @@ Rails.application.routes.draw do
     patch '/items/:id' => 'items#update'
     resources :customers, only: [:index, :show, :edit]
     patch '/customers/:id' => 'customers#update'
-    get '/orders/:id' => 'orders#show'
+    get '/orders/:id' => 'orders#show',as: :order
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 

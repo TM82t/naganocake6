@@ -1,10 +1,10 @@
 <div class="container">
 	<h5>注文情報確認</h5>
-	<%= form_with model: @order,url: orders_complete_path  do |order| %>
+	<%= form_with model: @order,url: orders_path  do |order| %>
 
 	<div class="row">
 	  <div class="col-xs-7">
-	    <table align="left" class="table table-bordered">
+	    <table class="table table-bordered">
 	      <tr>
 	        <th>商品名</th>
 	        <th>単価(税込)</th>
@@ -50,7 +50,7 @@
 
 	<p>
 	  <strong>支払方法 </strong><br>
-	  <%= @order.payment_method %>
+	  <%= @order.payment_method_i18n %>
 	</p>
 
   <p>
@@ -63,7 +63,7 @@
   <%= order.hidden_field :address,:value => @order.address %>
   <%= order.hidden_field :postal_code,:value => @order.postal_code %>
   <%= order.hidden_field :name,:value => @order.name %>
-  <%= order.hidden_field :total ,:value => @total %><br><br>
+  <%= order.hidden_field :total_payment ,:value => @total %><br><br>
 
   <div class="text-center">
     <%= order.submit "注文を確定する", class: "btn btn-success text-cenrer btn-lg" %>
