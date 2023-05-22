@@ -38,6 +38,10 @@ main {
     margin-left: -15px;
 }
 
+ footer{
+   margin-top: 50px;
+ }
+
 tr {
     display: table-row;
     vertical-align: inherit;
