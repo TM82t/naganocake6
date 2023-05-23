@@ -1,5 +1,5 @@
 <% if customer_signed_in? %>
-<li class="youkoso">ようこそ、<%= current_customer.last_name %>さん！</li>
+<li style="margin: 10px 180px 0 0;">ようこそ、<%= current_customer.last_name %>さん！</li>
 <li class="nav-item">
   <%= link_to customers_my_page_path, class: 'nav-link text-dark' do %>
   <i class="fas fa-home" style="color:#fff;"></i> マイページ
