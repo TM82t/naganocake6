@@ -1,14 +1,16 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
-      <h2>会員情報編集</h2>
+  <h5 style="width: 150px; background-color: #DDDDDD; text-align: center;">会員情報編集</h5>
 
-      <%= form_with model: @customer, url: customer_registration_path, id: 'new_customer', class: 'new_customer' do |f| %>
-        <%= render "public/shared/error_messages", resource: resource %>
+  <%= form_with model: @customer, url: customer_registration_path, id: 'new_customer', class: 'new_customer' do |f| %>
+    <%= render "public/shared/error_messages", resource: resource %>
+
+  <div class="row">
+    <div class="col-md-12">
 
         <div class="field">
           <%= f.label :name, "氏名" %>
           <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+
           <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
         </div>
 
@@ -40,8 +42,8 @@
 
 
         <div class="actions">
-          <%= f.submit "編集内容を保存", class: "btn btn-sm btn-success col-sm-3" %>
-          <%= link_to " 退会する", customers_confirm_path, class: "btn btn-danger col-sm-3" %>
+          <%= f.submit "編集内容を保存", class: "btn btn-sm btn-success" %>
+          <%= link_to " 退会する", customers_confirm_path, class: "btn btn-sm btn-danger" %>
         </div>
       <% end %>
 

@@ -1,7 +1,7 @@
 <div class="container">
+  <h5 style="width: 150px; background-color: #DDDDDD; text-align: center;">注文履歴一覧</h5>
   <div class="row">
-    <div class="col-xs-12">
-    	<h2>注文履歴一覧</h2>
+    <div class="col-md-12">
     	<table class="table-bordered">
     	  <tr>
           <th style="width:120px;">注文日</th>
@@ -20,7 +20,7 @@
             <% end %>
           </td>
           <td><%= order.total_payment %>円</td>
-          <td><%= link_to "表示する", order_path(order.id), class: "btn btn-primary text-cenrer" %></td>
+          <td align="center"><%= link_to "表示する", order_path(order.id), class: "btn btn-sm btn-primary position-center text-cenrer" %></td>
         </tr>
         <% end %>
     	</table>
