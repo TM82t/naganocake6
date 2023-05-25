@@ -1,33 +1,41 @@
 <div class="container">
+  <h5 style="width: 220px; background-color: #DDDDDD; text-align: center;">ショッピングカート</h5>
   <div class="row">
     <div class="col-xs-12">
-      <h4>ショッピングカート</h4>
       <%= link_to "カートを空にする", cart_items_destroy_all_path, method: :delete, class: "btn btn-danger" %>
-      <table>
+      <table class="table table-bordered">
         <thead>
-          <th>商品名</th>
-          <th style="width:180px;">単価(税込)</th>
-          <th style="width:180px;">数量</th>
-          <th style="width:180px;">小計</th>
-          <th style="width:180px;"></th>
+          <th class="table-active" style="width:450px;">商品名</th>
+          <th class="table-active" style="width:150px;">単価(税込)</th>
+          <th class="table-active" style="width:150px;">数量</th>
+          <th class="table-active" style="width:150px;">小計</th>
+          <th class="table-active" style="width:150px;"></th>
         </thead>
         <tbody>
         <% @cart_items.each do |cart_item| %>
             <tr>
-              <td><%= image_tag cart_item.item.image, size: "100x120" %><%= cart_item.item.name %></td>
-              <td><%= cart_item.item.with_tax_price %></td>
+              <td><%= image_tag cart_item.item.image, size: "100x80" %><%= cart_item.item.name %></td>
+              <td>
+                <div style="margin: 20px 0;">
+                  <%= cart_item.item.with_tax_price %>
+                </div>
+              </td>
               <td>
                 <%= form_with model: cart_item, url: cart_item_path(cart_item) do |c| %>
-                 <p>
+                 <p style="margin: 20px 0;">
                   <%= c.select :amount, {'1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '10': 10} %>
                   <%= c.submit "変更", class: "btn btn-success" %>
                  </p>
                 <% end %>
               </td>
-              <td><%= cart_item.subtotal %></td>
-              <% @total_payment +=  cart_item.subtotal %>
               <td>
-                <div style="margin-left:50px;">
+                <div style="margin: 20px 0;">
+                  <%= cart_item.subtotal %>
+                  <% @total_payment +=  cart_item.subtotal %>
+                </div>
+              </td>
+              <td>
+                <div align="center" style="margin: 20px 0;">
                   <%= link_to "削除する", cart_item_path(cart_item.id), method: :delete, class: "btn btn-danger" %>
                 </div>
               </td>
@@ -39,27 +47,25 @@
   </div>
 
   <div class="row">
-   <div class="col-xs-8">
-    <div class="margin-top:50px;">
+   <div class="col-xs-1 offset-1">
+    <div class="margin:50px 0;">
       <%= link_to "買い物を続ける", root_path, class: "btn btn-primary", data: {"turbolinks" => false} %>
     </div>
    </div>
-  </div>
 
-  <div class="col-xs-4">
-    <div>
+   <div class="col-xs-3 offset-7">
+    <table class="table table-bordered">
       <tr>
-        <td class="info col-xs-2"><strong>合計金額</strong></td>
-        <td class="col-xs-2">¥<%= @total_payment %></td>
+        <td class="info col-xs-2 table-active"><strong>合計金額</strong></td>
+        <td class="col-xs-2"><%= @total_payment %></td>
       </tr>
-    </div>
+    </table>
+   </div>
   </div>
 
   <div class="row">
-    <div class="col-xs-4"></div>
-      <div class="col-xs-4">
-        <%= link_to "情報入力に進む", orders_new_path, class: "col-xs-12 btn btn-success"%>
-      </div>
-    </div class="col-xs-4">
+    <div class="col-xs-4 offset-5" align="center">
+      <%= link_to "情報入力に進む", orders_new_path, class: "btn btn-success"%>
+    </div>
   </div>
 </div>

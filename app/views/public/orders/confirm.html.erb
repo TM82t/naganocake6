@@ -1,22 +1,22 @@
 <div class="container">
-	<h5>注文情報確認</h5>
+	<h5 tyle="width: 220px; background-color: #DDDDDD; text-align: center;">注文情報確認</h5>
 	<%= form_with model: @order,url: orders_path  do |order| %>
 
 	<div class="row">
-	  <div class="col-xs-7">
+	  <div class="col-md-7">
 	    <table class="table table-bordered">
 	      <tr>
-	        <th>商品名</th>
-	        <th>単価(税込)</th>
-	        <th>数量</th>
-	        <th>小計</th>
+	        <th class="table-active">商品名</th>
+	        <th class="table-active">単価(税込)</th>
+	        <th class="table-active">数量</th>
+	        <th class="table-active">小計</th>
 	      </tr>
 
 	      <tbody>
 	        <% @cart_items.each do |cart_item| %>
 	        <% @total+= cart_item.item.with_tax_price*cart_item.amount %>
 	        <tr>
-	          <td><%= cart_item.item.name %>
+	          <td><%= image_tag cart_item.item.image, size: "70x50" %><%= cart_item.item.name %></td>
 	          <td><%= cart_item.item.with_tax_price %></td>
 	          <td><%= cart_item.amount %></td>
 	          <td><%= cart_item.item.with_tax_price*cart_item.amount %></td>
@@ -26,20 +26,19 @@
 	   </table>
 	 </div>
 
-	 <div class="row">
-	   <div class="col-xs-5">
+	   <div class="col-md-3 offset-1">
 	     <table class="table table-bordered">
 	       <tbody>
   	       <tr>
-  	         <th>送料</th>
+  	         <th class="table-active">送料</th>
   	         <th>800</th>
   	       </tr>
 	         <tr>
-	           <th>商品合計</th>
+	           <th class="table-active">商品合計</th>
 	           <td><%= @total %></td>
 	         </tr>
 	         <tr>
-	           <th>請求額</th>
+	           <th class="table-active">請求額</th>
 	           <td><%= @total+800 %></td>
 	         </tr>
 	       </tbody>
@@ -49,12 +48,12 @@
 	</div><br>
 
 	<p>
-	  <strong>支払方法 </strong><br>
+	  <strong>支払方法 </strong>
 	  <%= @order.payment_method_i18n %>
 	</p>
 
   <p>
-    <strong>お届け先 </strong><br>
+    <strong>お届け先 </strong>
     <%= @order.postal_code %> <%= @order.address %><br>
     <%= @order.name %>
   </p>
