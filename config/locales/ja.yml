@@ -4,3 +4,4 @@
         payment_method:
           credit_card: "クレジットカード"
           bank: "銀行振込"
+ 

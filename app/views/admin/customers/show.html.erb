@@ -34,12 +34,12 @@
               </tr>
               <tr>
                 <th>会員ステータス</th>
-                <td><%= @customer.is_deleted %></td>
+                <td><%= @customer.is_deleted_i18n %></td>
               </tr>
             </body>
           </table>
         <%= link_to "編集する", edit_admin_customer_path(@customer.id), class: "btn btn-success mb-4" %>
-        <%= link_to "注文履歴一覧を見る", admin_customer_path(@customer.id), class: "btn btn-primary mb-4" %>
+        <%= link_to "注文履歴一覧を見る", admin_root_path, class: "btn btn-primary mb-4" %>
       </div>
     </div>
 </div>
