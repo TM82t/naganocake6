@@ -1,8 +1,21 @@
 <div class="container">
-  <h5 style="width: 220px; background-color: #DDDDDD; text-align: center;">ショッピングカート</h5>
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-md-4">
+      <h5 style="width: 220px; background-color: #DDDDDD; text-align: center;">ショッピングカート</h5>
+    </div>
+    <div class="col-md-4">
+      <% flash.each do |message_type, message| %>
+      <%= content_tag :div, message, class: message_type %>
+      <% end %>
+    </div>
+    <div class="col-md-4 text-right">
       <%= link_to "カートを空にする", cart_items_destroy_all_path, method: :delete, class: "btn btn-danger" %>
+    </div>
+  </div>
+  <br>
+
+  <div class="row">
+    <div class="col-md-12">
       <table class="table table-bordered">
         <thead>
           <th class="table-active" style="width:450px;">商品名</th>
@@ -17,7 +30,7 @@
               <td><%= image_tag cart_item.item.image, size: "100x80" %><%= cart_item.item.name %></td>
               <td>
                 <div style="margin: 20px 0;">
-                  <%= cart_item.item.with_tax_price %>
+                  <%= cart_item.item.with_tax_price.to_s(:delimited, delimiter: ',') %>
                 </div>
               </td>
               <td>
@@ -30,8 +43,8 @@
               </td>
               <td>
                 <div style="margin: 20px 0;">
-                  <%= cart_item.subtotal %>
-                  <% @total_payment +=  cart_item.subtotal %>
+                  <%= cart_item.subtotal.to_s(:delimited, delimiter: ',') %>
+                  <% (@total_payment += cart_item.subtotal).to_s(:delimited, delimiter: ',') %>
                 </div>
               </td>
               <td>
@@ -47,17 +60,17 @@
   </div>
 
   <div class="row">
-   <div class="col-xs-1 offset-1">
+   <div class="col-md-3 offset-1">
     <div class="margin:50px 0;">
       <%= link_to "買い物を続ける", root_path, class: "btn btn-primary", data: {"turbolinks" => false} %>
     </div>
    </div>
 
-   <div class="col-xs-3 offset-7">
+   <div class="col-md-4 offset-4">
     <table class="table table-bordered">
       <tr>
         <td class="info col-xs-2 table-active"><strong>合計金額</strong></td>
-        <td class="col-xs-2"><%= @total_payment %></td>
+        <td class="col-xs-2"><%= @total_payment.to_s(:delimited, delimiter: ',') %></td>
       </tr>
     </table>
    </div>
@@ -65,7 +78,7 @@
 
   <div class="row">
     <div class="col-xs-4 offset-5" align="center">
-      <%= link_to "情報入力に進む", orders_new_path, class: "btn btn-success"%>
+        <%= link_to "情報入力に進む", orders_new_path, class: "btn btn-success ml-4" %>
     </div>
   </div>
 </div>

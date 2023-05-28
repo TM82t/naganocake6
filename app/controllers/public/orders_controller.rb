@@ -2,6 +2,13 @@ class Public::OrdersController < ApplicationController
 
   def new
     @order = Order.new
+    if current_customer.cart_items.count == 0
+      flash[:notice] = "商品がカートにありません。"
+      redirect_to cart_items_path
+    else
+      redirect_to orders_new_path
+    end
+
   end
 
   def index
