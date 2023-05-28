@@ -1,4 +1,5 @@
 class Public::OrdersController < ApplicationController
+  before_action :authenticate_customer!
 
   def new
     @order = Order.new
@@ -6,7 +7,7 @@ class Public::OrdersController < ApplicationController
       flash[:notice] = "商品がカートにありません。"
       redirect_to cart_items_path
     else
-      redirect_to orders_new_path
+      render 'new'
     end
 
   end
