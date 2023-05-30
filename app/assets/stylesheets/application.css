@@ -26,6 +26,10 @@ main {
   height: 100%;
 }
 
+table {
+  height: 100%;
+}
+
 footer{
    margin-top: 50px;
  }

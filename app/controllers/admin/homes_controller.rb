@@ -3,7 +3,7 @@ class Admin::HomesController < ApplicationController
   # before_action :correct_user, only: [:edit, :update]
 
   def top
-    @orders = Order.all
+    @orders = Order.page(params[:page]).per(10)
   end
 
   def new
