@@ -81,10 +81,12 @@
 ## インストール
 * $ git clone https://github.com/TM82t/naganocake6.git
 * $ cd nagano_cake
+* $ bundle install
+* $ rails db:maigrate
 
 ## 使用言語
 * HTML&CSS
 * Ruby
 * JavaScript
 * フレームワーク
-⚪︎Ruby on Rails
+* ⚪︎Ruby on Rails
