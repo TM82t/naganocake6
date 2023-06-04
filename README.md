@@ -78,7 +78,13 @@
 #### 9 商品情報変更機能
 * 商品の登録情報を変更することができる。
 
-# インストール
+## インストール
 * $ git clone https://github.com/TM82t/naganocake6.git
 * $ cd nagano_cake
 
+## 使用言語
+* HTML&CSS
+* Ruby
+* JavaScript
+* フレームワーク
+⚪︎Ruby on Rails
