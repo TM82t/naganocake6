@@ -87,5 +87,5 @@
 ## 使用言語
 * HTML&CSS
 * Ruby
-* フレームワーク　　[Ruby on Rails(6.1.7.3)]　　
+* フレームワーク　[ Ruby on Rails(6.1.7.3) ]　　
 
