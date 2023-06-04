@@ -77,3 +77,9 @@
 
 #### 9 商品情報変更機能
 * 商品の登録情報を変更することができる。
+
+# インストール
+$ git clone https://github.com/webcamp-naganocake/naganocake.git
+$ cd nagano_cake
+$ sh setup.sh
+$ ~do anything~
