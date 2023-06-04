@@ -88,5 +88,5 @@
 * HTML&CSS
 * Ruby
 * JavaScript
-* フレームワーク
-* ⚪︎Ruby on Rails
+* フレームワーク. 
+  ⚪︎Ruby on Rails
